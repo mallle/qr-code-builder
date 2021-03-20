@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.3.3/lib/qr-code-styling.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <title>QR-Code Generator</title>
+
+</head>
+<body>
+  <section class="hero is-medium has-background-warning">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          QR-Code Generator
+        </p>
+        <p class="subtitle">
+          Download a .png/.jpeg/.webp image of your customized QR-Code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section is-medium has-background-light">
+      <div class="container">
+        <div class="columns is-desktop is-centered">
+          <div class="column is-half">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title has-text-centered">
+                  Customize your QR-Code here
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <form onsubmit="return false;">
+                    <div class="form-group">
+                      <div class="field">
+                        <label class="label" for="url">URL</label>
+                        <div class="control">
+                          <input class="input" onchange="updateQrUrl();" type="text" name="url" id="url" placeholder="https://example.com" required>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label" for="url">Image</label>
+                    
+                        <div class="file is-boxed">
+                          <label class="file-label">
+                            <input class="file-input" type="file" onchange="updateQrImg();" name="imageInput" id="imageInput" accept="image/*"  />
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+                            <span class="file-name">
+                              Screen Shot 2017-07-29 at 15.54.25.png
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label" for="color">Color</label>
+                        <div class="control">
+                          <input class="input" onchange="updateQrColor();" type="color" name="color" id="color" >
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">Type</label>
+                    
+                        <div class="control">
+                          <label class="radio">
+                            <input type="radio" onchange="updateQrType();" name="type" value="rounded" id="round" checked>
+                            Round
+                          </label>
+                          <label class="radio">
+                            <input type="radio" onchange="updateQrType();" name="type" value="square" >
+                            Square
+                          </label>
+                          <label class="radio" >
+                            <input type="radio" onchange="updateQrType();" name="type" value="dots" >
+                            Dots
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="columns is-desktop is-centered">
+          <div class="column is-half has-text-centered">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title has-text-centered">
+                  Download your QR-Code here
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div id="canvas" height="300" width="300" class="mb-4"></div>
+                  <div class="field">
+                    <div class="control">
+                      <button class="button is-danger is-fullwidth" onclick="download();">Download PNG</button>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <button class="button is-danger is-fullwidth" onclick="download('jpeg');">Download JPEG</button>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <button class="button is-danger is-fullwidth" onclick="download('webp');">Download WEBP</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
