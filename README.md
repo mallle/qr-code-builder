@@ -1,5 +1,6 @@
-#QR-Code Generator
-##Customize and down your own QR-Code
+# QR-Code Generator
+
+## Customize and down your own QR-Code
 
 ---
 
